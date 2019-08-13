@@ -1,0 +1,106 @@
+/*
+  Name: Stella Lau
+  Date: 08.11.2019
+  Section: CSE 154 AC
+
+  This is the CSS file that I use for the home page of my final project
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
+
+body {
+  font-family: 'Cardo', serif;
+  text-align: center;
+}
+
+h1, header a, nav a {
+  color: white;
+}
+
+header div, #global-nav ul, .image-container, #cart {
+  display: flex;
+}
+
+header p {
+  font-style: italic;
+}
+
+header div, footer {
+  background-image: linear-gradient(#00a5c9, #81e0f5);
+}
+
+header div {
+  justify-content: center;
+}
+
+header img {
+  width: 5rem;
+}
+
+#cart {
+  background: none;
+  justify-content: flex-end;
+  margin-top: -5rem;
+  margin-right: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+nav ul, main > a {
+  font-weight: bold;
+}
+
+#global-nav ul, .image-container {
+  justify-content: space-evenly;
+}
+
+#global-nav, #local-nav ul {
+  border: 0.5rem solid #81e0f5;
+  border-radius: 0.5rem;
+  background-color: #00a5c9;
+}
+
+#global-nav, main > a {
+  font-size: 1.25rem;
+}
+
+#local-nav ul {
+  position: fixed;
+  right: 0;
+  margin: 2rem;
+  opacity: 0.8;
+}
+
+a {
+  text-decoration: none;
+}
+
+section img {
+  width: 10rem;
+}
+
+.image-container {
+  flex-wrap: wrap;
+}
+
+#local-nav ul, footer {
+  padding: 1rem;
+}
+
+#new-workshops img, .workshop img {
+  width: 25rem;
+  margin: 1rem;
+  border: 5rem;
+  border-radius: 5rem;
+}
+
+main > a {
+  color: #00a5c9;
+}
+
+#option2 img {
+  background-image: url(img/card.png);
+  background-size: 10rem;
+}

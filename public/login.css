@@ -1,0 +1,117 @@
+/*
+  Name: Stella Lau
+  Date: 08.11.2019
+  Section: CSE 154 AC
+
+  This is the CSS file that I use for the log in page and the contacts page of my final project
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
+
+body {
+  font-family: 'Cardo', serif;
+  text-align: center;
+}
+
+h1, header a, nav a, button {
+  color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+header p {
+  font-style: italic;
+}
+
+header div, footer {
+  background-image: linear-gradient(#00a5c9, #81e0f5);
+}
+
+header div, #user-info {
+  justify-content: center;
+}
+
+header img {
+  width: 5rem;
+}
+
+nav ul {
+  list-style: none;
+  font-weight: bold;
+  justify-content: space-evenly;
+}
+
+nav, button {
+  background-color: #00a5c9;
+}
+
+nav {
+  border: 0.5rem solid #81e0f5;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  padding: 1rem;
+}
+
+#cart {
+  background: none;
+  justify-content: flex-end;
+  margin-top: -5rem;
+  margin-right: 1rem;
+}
+
+fieldset, #user-info {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+nav, button {
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+}
+
+button {
+  height: 2rem;
+  border: 3px solid #81e0f5;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
+button, #user-info img {
+  width: 7rem;
+}
+
+#already-btn {
+  width: 10rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#user-info img {
+  background-color: #81e0f5;
+  padding: 0.5rem;
+  border: 0.8rem solid #00a5c9;
+  border-radius: 50%;
+  margin-right: 5rem;
+  margin-bottom: 3rem;
+}
+
+#sign-up {
+  min-height: 20rem;
+}
+
+form > label, form button {
+  display: block;
+}
+
+form button {
+  margin: auto;
+}

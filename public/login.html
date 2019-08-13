@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Log In Page of SEAL</title>
+  </head>
+  <body>
+    <header>
+      <div class="flex">
+        <img src="img/seal.png" alt="Store Logo" />
+        <h1>
+          <a href="home.html" title="Home Page of Seal">SEAL</a>
+        </h1>
+      </div>
+      <div id="cart" class="flex">
+        <a href="cart.html" title="Cart of SEAL">
+          <img src="img/cart.png" alt="Shopping Cart" />
+        </a>
+      </div>
+      <p>Sustainable, Eco-freindly, and Active Lifestyle Market</p>
+      <p>Grocery, Apparel, and More Anytime and Anywhere!</p>
+    </header>
+    <main>
+      <nav>
+        <ul class="flex">
+          <li>
+            <a href="products.html" title="Products Page of SEAL">Products</a>
+          </li>
+          <li>
+            <a href="rewards.html" title="Rewards Page of SEAL">Rewards</a>
+          </li>
+          <li>
+            <a href="workshops.html" title="Workshops Page of SEAL">Workshops</a>
+          </li>
+          <li>
+            <a href="contacts.html" title="Contacts Page of SEAL">Contacts</a>
+          </li>
+        </ul>
+      </nav>
+      <section id="sign-up">
+        <h2>Sign Up</h2>
+        <p>Please enter your username and password to sign up!</p>
+        <fieldset>
+          <legend>Sign Up Details</legend>
+          <label for="username">Username/Email: </label>
+          <input type="email" id="username" />
+          <label for="password">Password: </label>
+          <input type="text" id="password" />
+        </fieldset>
+        <button>Sign Up</button>
+        <p> Already signed up?</p>
+        <button id="already-btn">Click to Log In!</button>
+      </section>
+      <section id="log-in" class="hidden">
+        <h2>Log In</h2>
+        <p>Please enter your username and password to log in!</p>
+        <fieldset>
+          <legend>Log In Details</legend>
+          <label for="username-after">Username/Email: </label>
+          <input type="email" id="username-after" required />
+          <label for="password-after">Password: </label>
+          <input type="text" id="password-after" required />
+        </fieldset>
+        <button>Log In</button>
+      </section>
+      <p class="hidden">Welcome to your account, you can view your account now!</p>
+      <section id="user-info" class="hidden">
+        <h2>Account Information</h2>
+        <img src=img/orca.png alt="user picture, an orca" />
+        <section>
+          <p>Reward Points: <span>0</span></p>
+          <p>Email: <span>seal@gmail.com</span></p>
+        </section>
+      </section>
+      <button class="hidden">Log Out</button>
+    </main>
+    <footer>
+      <p>
+        Copyright © 2019 Stella Lau
+      </p>
+      <div>Logo icon made by
+        <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
+        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      </div>
+      <div>Icons made by
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+         from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+         is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
+         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+       </div>
+    </footer>
+  </body>
+</html>
