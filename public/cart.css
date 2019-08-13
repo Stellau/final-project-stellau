@@ -3,7 +3,8 @@
   Date: 08.11.2019
   Section: CSE 154 AC
 
-  This is the CSS file that I use for the cart.html of my final project
+  This is the CSS file that I use for the cart.html and the item.html
+  of my final project
 */
 
 @import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
@@ -90,4 +91,20 @@ section {
 
 main > div {
   min-height: 30rem;
+}
+
+#cart {
+  background: none;
+  justify-content: flex-end;
+  margin-top: -5rem;
+  margin-right: 1rem;
+}
+
+#item-info {
+  margin-top: 5rem;
+}
+
+#item-info img {
+  height: 15rem;
+  margin-right: 10rem;
 }

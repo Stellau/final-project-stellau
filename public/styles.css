@@ -17,7 +17,7 @@ h1, header a, nav a {
   color: white;
 }
 
-header div, #global-nav ul, .image-container, #cart {
+header div, #global-nav ul, .image-container, #cart, #filter {
   display: flex;
 }
 
@@ -103,4 +103,9 @@ main > a {
 #option2 img {
   background-image: url(img/card.png);
   background-size: 10rem;
+}
+
+#filter {
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
