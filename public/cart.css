@@ -14,7 +14,7 @@ body {
   text-align: center;
 }
 
-h1, header a, nav a, button {
+h1, header a, nav a, button, #cookie-term {
   color: white;
 }
 
@@ -60,9 +60,12 @@ footer {
   padding: 1rem;
 }
 
+nav, button, #cookie-term {
+  font-size: 1.25rem;
+}
+
 nav, button {
   border-radius: 0.5rem;
-  font-size: 1.25rem;
 }
 
 button {
@@ -75,10 +78,6 @@ button {
 
 .hidden {
   display: none;
-}
-
-span {
-  word-spacing: 3rem;
 }
 
 section {
@@ -94,18 +93,18 @@ main > div {
   min-height: 30rem;
 }
 
-#cart {
+#icon {
   background: none;
   justify-content: flex-end;
+  padding-right: 2rem;
+  height: 5rem;
   margin-top: -5rem;
-  margin-right: 1rem;
 }
 
-#item-info {
-  margin-top: 5rem;
-}
-
-#item-info img {
-  height: 15rem;
-  margin-right: 10rem;
+#icon img {
+  border: 3px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 3rem;
+  margin-top: 0.5rem;
 }

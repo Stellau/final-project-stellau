@@ -18,47 +18,76 @@ at SEAL, an e-commerce store.
 ```json
 {
   "products": {
-    "dairy": [
-      {
-        "name": "Parmigiano-Reggiano Cheese",
-        "description": "One of Italian's favorite hard cheese",
-        "price": "19.99",
-        "unit": "lb"
-      }
-      {
-        "name": "Pasture-raised Free Range Eggs",
-        "description": "These eggs are safe for Tamago gohan",
-        "price": "5.99",
-        "unit": "dozen"
-      }
-      {
-        "name": "Lactose-free Yogurt",
-        "description": "Safe to enjoy for those who are lactose-intolerant!",
-        "price": "4.99",
-        "unit": "tub"
-      }
+    "food": [
+      "dairy": [
+        {
+          "name": "Parmigiano-Reggiano Cheese",
+          "short": "cheese",
+          "price": 19.99,
+          "unit": "lb"
+        },
+        {
+          "name": "Pasture-raised Free Range Eggs",
+          "short": "eggs",
+          "price": 5.99,
+          "unit": "dozen"
+        }
+        ,
+        {
+          "name": "Lactose-free Yogurt",
+          "short": "yogurt",
+          "price": 4.99,
+          "unit": "tub"
+        }
+      ],
+      "meat": [
+        {
+          "name": "Ribeye Steak",
+          "short": "beef",
+          "price": 13.99,
+          "unit": "lb"
+        },
+        {
+          "name": "Roasted Turkey",
+          "short": "turkey",
+          "price": 8.99,
+          "unit": "Each"
+        },
+        {
+          "name": "Whole Ham",
+          "short": "ham",
+          "price": 10.99,
+          "unit": "Each"
+        }
+      ]
+      ...
     ],
-    "meat": [
+    "apparel": [
       {
-        "name": "Ribeye Steak",
-        "description": "Finest USDA Prime Steak!",
-        "price": "13.99",
-        "unit": "lb"
-      }
+        "name": "100% Cotton T-shirt",
+        "short": "shirt",
+        "colors": ["blue", "orange", "purple"],
+        "price": 15.99
+      },
       {
-        "name": "Roasted Turkey",
-        "description": "Turkeys are not just for Thanksgiving!",
-        "price": "8.99",
-        "unit": "Each"
-      }
+        "name": "Down Jacket",
+        "short": "jacket",
+        "colors": ["blue", "orange"],
+        "price": 199.99
+      },
       {
-        "name": "Whole Ham",
-        "description": "Ham leg from pigs raised eating pine nuts!",
-        "price": "10.99",
-        "unit": "Each"
+        "name": "Denim Jacket",
+        "short": "denim-jacket",
+        "colors": ["black", "blue"],
+        "price": 64.99
+      },
+      {
+        "name": "Jeans",
+        "short": "jeans",
+        "colors": ["khaki", "blue"],
+        "price": 53.99
       }
     ]
-    ...
   }
 }
 ```
@@ -147,21 +176,41 @@ Responds with a 500 status plain text error message if there is something with f
 **Error Handling:**
 Responds with a 500 status plain text message if there is something with writing the JSON on the server-side or if there is something wrong with the user's parameter responds with a 400 error
 
-## /contacts
-**Request Format:** /contacts
+## /add
+**Request Format:** /add
 
 **Request Type:** POST
 
 **Returned Data Format**: plain text
 
-**Description:** Adds the contact information into the contact JSON file
+**Description:** Adds the item to cart
 
-**Example Request:** POST parameters of *name=Foo*, *email=foo@bar.com*, *phone=123-456-7890*, and *message="more food please!"*
+**Example Request:** POST parameters of *item*
 
 **Example Response:**
 
 ```
-Hi! You successfully submitted the contact form, our staff will be with your soon!
+You successfully added the "item" into your cart!
+```
+
+**Error Handling:**
+Responds with a 500 status plain text message if there is something with writing the JSON on the server-side or if there is something wrong with the user's parameter responds with a 400 error
+
+## /checkout
+**Request Format:** /checkout
+
+**Request Type:** POST
+
+**Returned Data Format**: plain text
+
+**Description:** Checkout all the items in cart
+
+**Example Request:** POST parameters of *items*
+
+**Example Response:**
+
+```
+You successfully checkout! Here is your receipt!
 ```
 
 **Error Handling:**

@@ -15,13 +15,16 @@
   </head>
   <body>
     <header>
-      <div>
+      <div class="flex">
         <img src="img/seal.png" alt="Store Logo" />
         <h1>
           <a href="home.html" title="Home Page of Seal">SEAL</a>
         </h1>
       </div>
-      <div id="cart">
+      <div id="cart-and-icon" class="flex">
+        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+          <img src="img/orca.png" alt="User Icon" />
+        </a>
         <a href="cart.html" title="Cart of SEAL">
           <img src="img/cart.png" alt="Shopping Cart" />
         </a>
@@ -31,7 +34,7 @@
     </header>
     <main>
       <nav id="global-nav">
-        <ul>
+        <ul class="flex">
           <li>
             <a href="login.html" title="Log In Page of SEAL">Log In/Sign Up</a>
           </li>
@@ -46,7 +49,7 @@
           </li>
         </ul>
       </nav>
-      <div id="filter">
+      <div id="filter-search" class="flex">
         <select name="price-range">
           <option value="">--Please Choose a Price Range--</option>
           <option value="<5">&lt;$5</option>
@@ -55,6 +58,8 @@
           <option value="25-50">$25-50</option>
           <option value=">50">&gt;$50</option>
         </select>
+        <input type="text" id="search-item" />
+        <button>Search</button>
       </div>
       <nav id="local-nav">
         <ul>
@@ -78,7 +83,7 @@
       <section id="dairy">
         <h2>Dairy & Eggs</h2>
         <p>Will use fetch to fetch all dairy product later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/yogurt.png" alt="yogurt" />
             <figcaption>
@@ -105,7 +110,7 @@
       <section id="meat">
         <h2>Beef, Poultry, & Pork</h2>
         <p>Will use fetch to fetch all meats</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/beef.png" alt="steak" />
             <figcaption>
@@ -132,7 +137,7 @@
       <section id="seafood">
         <h2>Seafood</h2>
         <p>Will use fetch to fetch all seafood later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/oyster.png" alt="oysters" />
             <figcaption>
@@ -159,7 +164,7 @@
       <section id="produce">
         <h2>Produce</h2>
         <p>Will use fetch to fetch all produce later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/avocado.png" alt="avocado" />
             <figcaption>
@@ -186,7 +191,7 @@
       <section id="pantry">
         <h2>Pantry Essentials</h2>
         <p>Will use fetch to fetch all pantry essentials later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/honey.png" alt="honey" />
             <figcaption>
@@ -210,11 +215,30 @@
           </figure>
         </div>
       </section>
+      <!-- switch class to flex later -->
+      <section id="item-info" class="hidden">
+        <img src="img/salmon.png" alt="salmon" />
+        <section>
+          <h2>Content: </h2>
+          <p>Salmon</p>
+          <h2>Information: </h2>
+          <p>Farm-raised Norwegian salmon fillet, delivered fresh every day!</p>
+          <h2>Price</h2>
+          <p>$<span>9.99</span>/<span>lb</span></p>
+          <button id="add">Add to Cart</button>
+        </section>
+      </section>
       <a href="#top">Back to the Top</a>
     </main>
     <footer>
       <p>
         Copyright © 2019 Stella Lau
+      </p>
+      <p id="cookie-term">
+        <strong>
+          This website uses cookies 🍪 for to keep track of sign in status!
+          Only proceed, if agree to use of cookies!
+        </strong>
       </p>
       <p>
         Price of products might change at the time of transaction. The price in Cart

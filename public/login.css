@@ -13,7 +13,7 @@ body {
   text-align: center;
 }
 
-h1, header a, nav a, button {
+h1, header a, nav a, button, #cookie-term {
   color: white;
 }
 
@@ -33,7 +33,7 @@ header div, #user-info {
   justify-content: center;
 }
 
-header img {
+header img, #user-info img {
   width: 5rem;
 }
 
@@ -59,11 +59,22 @@ footer {
   padding: 1rem;
 }
 
-#cart {
+#cart-and-icon {
   background: none;
   justify-content: flex-end;
   margin-top: -5rem;
-  margin-right: 1rem;
+}
+
+#cart-and-icon img {
+  margin-right: 2rem;
+}
+
+#cart-and-icon a:first-child img {
+  border: 3px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 3rem;
+  margin-top: 0.5rem;
 }
 
 fieldset, #user-info {
@@ -71,9 +82,12 @@ fieldset, #user-info {
   margin-bottom: 1rem;
 }
 
+nav, button, #cookie-term {
+  font-size: 1.25rem;
+}
+
 nav, button {
   border-radius: 0.5rem;
-  font-size: 1.25rem;
 }
 
 button {
@@ -81,9 +95,6 @@ button {
   border: 3px solid #81e0f5;
   margin-top: 1rem;
   margin-bottom: 5rem;
-}
-
-button, #user-info img {
   width: 7rem;
 }
 
@@ -96,12 +107,18 @@ button, #user-info img {
 }
 
 #user-info img {
-  background-color: #81e0f5;
   padding: 0.5rem;
-  border: 0.8rem solid #00a5c9;
+  border: 0.5rem solid #00a5c9;
   border-radius: 50%;
   margin-right: 5rem;
+}
+
+#user-info img, form button {
   margin-bottom: 3rem;
+}
+
+#user-info section {
+  margin-top: 5rem;
 }
 
 #sign-up {
@@ -113,5 +130,10 @@ form > label, form button {
 }
 
 form button {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input:invalid, #user-info img {
+  background-color: #81e0f5;
 }

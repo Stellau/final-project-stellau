@@ -16,11 +16,14 @@
   </head>
   <body>
     <header id="top">
-      <div>
+      <div class="flex">
         <img src="img/seal.png" alt="Store Logo" />
         <h1>SEAL</h1>
       </div>
-      <div id="cart">
+      <div id="cart-and-icon" class="flex">
+        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+          <img src="img/orca.png" alt="User Icon" />
+        </a>
         <a href="cart.html" title="Cart of SEAL">
           <img src="img/cart.png" alt="Shopping Cart" />
         </a>
@@ -30,7 +33,7 @@
     </header>
     <main>
       <nav id="global-nav">
-        <ul>
+        <ul class="flex">
           <li>
             <a href="login.html" title="Log In Page of SEAL">Log In/Sign Up</a>
           </li>
@@ -64,7 +67,7 @@
       <section id="sales">
         <h2>Sales</h2>
         <p>Will use fetch to fetch all sales product later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/yogurt.png" alt="yogurt" />
             <figcaption>
@@ -91,7 +94,7 @@
       <section id="new-products">
         <h2>New Products</h2>
         <p>Will use fetch to fetch all new items later</p>
-        <div class="image-container">
+        <div class="image-container flex">
           <figure>
             <img src="img/honey.png" alt="honey" />
             <figcaption>
@@ -124,7 +127,7 @@
             new workshop. Sign up to spend some quality time with baby goats
             while working out!
           </p>
-          <div class="image-container">
+          <div class="image-container flex">
             <img src="img/goatyoga1.jpg" alt="white baby goat on top of woman doing yoga" />
             <img src="img/goatyoga2.jpg" alt="black baby goat on top of woman doing yoga" />
           </div>
@@ -135,6 +138,12 @@
     <footer>
       <p>
         Copyright © 2019 Stella Lau
+      </p>
+      <p id="cookie-term">
+        <strong>
+          This website uses cookies 🍪 for to keep track of sign in status!
+          Only proceed, if agree to use of cookies!
+        </strong>
       </p>
       <p>
         Pictures are from pinterest.com ©

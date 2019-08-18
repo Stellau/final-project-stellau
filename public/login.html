@@ -21,7 +21,10 @@
           <a href="home.html" title="Home Page of Seal">SEAL</a>
         </h1>
       </div>
-      <div id="cart" class="flex">
+      <div id="cart-and-icon" class="flex">
+        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+          <img src="img/orca.png" alt="User Icon" />
+        </a>
         <a href="cart.html" title="Cart of SEAL">
           <img src="img/cart.png" alt="Shopping Cart" />
         </a>
@@ -49,14 +52,32 @@
       <section id="sign-up">
         <h2>Sign Up</h2>
         <p>Please enter your username and password to sign up!</p>
+        <p>
+          Sign up to be one of our loyal customers, so you
+          will be one of the firsts to receive news about sales! You
+          will also be able to use your reward points to redeem gifts
+          and more!
+        </p>
         <fieldset>
           <legend>Sign Up Details</legend>
-          <label for="username">Username/Email: </label>
-          <input type="email" id="username" />
-          <label for="password">Password: </label>
-          <input type="text" id="password" />
+          <p>
+            <label for="username">Username: </label>
+            <input type="text" id="username" required />
+          </p>
+          <p>
+            <label for="email">Email: </label>
+            <input type="email" id="email" required />
+          </p>
+          <p>
+            <label for="phone-number">Phone Number: </label>
+            <input type="tel" id="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+          </p>
+          <p>
+            <label for="password">Password: </label>
+            <input type="text" id="password" required />
+          </p>
         </fieldset>
-        <button>Sign Up</button>
+        <button type="submit">Sign Up</button>
         <p> Already signed up?</p>
         <button id="already-btn">Click to Log In!</button>
       </section>
@@ -73,9 +94,12 @@
         <button>Log In</button>
       </section>
       <p class="hidden">Welcome to your account, you can view your account now!</p>
+      <!-- change class to flex, once signed in! -->
       <section id="user-info" class="hidden">
-        <h2>Account Information</h2>
-        <img src=img/orca.png alt="user picture, an orca" />
+        <div>
+          <h2>Account Information:</h2>
+          <img src=img/orca.png alt="user picture, an orca" />
+        </div>
         <section>
           <p>Reward Points: <span>0</span></p>
           <p>Email: <span>seal@gmail.com</span></p>
@@ -86,6 +110,12 @@
     <footer>
       <p>
         Copyright © 2019 Stella Lau
+      </p>
+      <p id="cookie-term">
+        <strong>
+          This website uses cookies 🍪 for to keep track of sign in status!
+          Only proceed, if agree to use of cookies!
+        </strong>
       </p>
       <div>Logo icon made by
         <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a>
