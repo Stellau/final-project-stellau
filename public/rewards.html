@@ -12,6 +12,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="rewards.js"></script>
     <title>Rewards Page of SEAL</title>
   </head>
   <body>
@@ -23,7 +25,7 @@
         </h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -50,6 +52,8 @@
           </li>
         </ul>
       </nav>
+      <div id="error-container">
+      </div>
       <p><strong>For every 1 dollar spent at SEAL, you earn two reward points!</strong></p>
       <p>Redeem your rewards in <strong>cart</strong>!</p>
       <nav id="local-nav">
@@ -102,17 +106,19 @@
           You can also choose to exchange your rewards for gifts below, shipping and handling
           fees are not included.
         </p>
-        <p>A full list of gifts will be fetched later</p>
       </section>
+      <div id="container" class="image-container flex">
+      </div>
       <section id="item-info" class="hidden">
-        <img src="img/salmon.png" alt="salmon" />
+        <button id="back">Back</button>
+        <img id="item-image" />
         <section>
           <h2>Content: </h2>
-          <p>Salmon</p>
+          <p id="content"></p>
           <h2>Information: </h2>
-          <p>Farm-raised Norwegian salmon fillet, delivered fresh every day!</p>
-          <h2>Price</h2>
-          <p>$<span>9.99</span>/<span>lb</span></p>
+          <p id="description"></p>
+          <h2>Points: </h2>
+          <p id="points"></p>
           <button id="add">Add to Cart</button>
         </section>
       </section>

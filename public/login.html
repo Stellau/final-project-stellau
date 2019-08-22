@@ -10,7 +10,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Log In Page of SEAL</title>
   </head>
   <body>
@@ -22,7 +22,7 @@
         </h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -33,7 +33,7 @@
       <p>Grocery, Apparel, and More Anytime and Anywhere!</p>
     </header>
     <main>
-      <nav>
+      <nav id="global-nav">
         <ul class="flex">
           <li>
             <a href="products.html" title="Products Page of SEAL">Products</a>
@@ -58,40 +58,44 @@
           will also be able to use your reward points to redeem gifts
           and more!
         </p>
-        <fieldset>
-          <legend>Sign Up Details</legend>
-          <p>
-            <label for="username">Username: </label>
-            <input type="text" id="username" required />
-          </p>
-          <p>
-            <label for="email">Email: </label>
-            <input type="email" id="email" required />
-          </p>
-          <p>
-            <label for="phone-number">Phone Number: </label>
-            <input type="tel" id="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
-          </p>
-          <p>
-            <label for="password">Password: </label>
-            <input type="text" id="password" required />
-          </p>
-        </fieldset>
-        <button type="submit">Sign Up</button>
+        <form>
+          <fieldset>
+            <legend>Sign Up Details</legend>
+            <p>
+              <label for="username">Username: </label>
+              <input type="text" id="username" required />
+            </p>
+            <p>
+              <label for="email">Email: </label>
+              <input type="email" id="email" required />
+            </p>
+            <p>
+              <label for="phone-number">Phone Number: </label>
+              <input type="tel" id="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+            </p>
+            <p>
+              <label for="password">Password: </label>
+              <input type="text" id="password" required />
+            </p>
+          </fieldset>
+          <button type="submit" id="signup-btn">Sign Up</button>
+        </form>
         <p> Already signed up?</p>
         <button id="already-btn">Click to Log In!</button>
       </section>
       <section id="log-in" class="hidden">
         <h2>Log In</h2>
         <p>Please enter your username and password to log in!</p>
-        <fieldset>
-          <legend>Log In Details</legend>
-          <label for="username-after">Username/Email: </label>
-          <input type="email" id="username-after" required />
-          <label for="password-after">Password: </label>
-          <input type="text" id="password-after" required />
-        </fieldset>
-        <button>Log In</button>
+        <form>
+          <fieldset>
+            <legend>Log In Details</legend>
+            <label for="username-after">Username/Email: </label>
+            <input type="email" id="username-after" required />
+            <label for="password-after">Password: </label>
+            <input type="text" id="password-after" required />
+          </fieldset>
+          <button type="submit" id="login-btn">Log In</button>
+        </form>
       </section>
       <p class="hidden">Welcome to your account, you can view your account now!</p>
       <!-- change class to flex, once signed in! -->
@@ -105,7 +109,7 @@
           <p>Email: <span>seal@gmail.com</span></p>
         </section>
       </section>
-      <button class="hidden">Log Out</button>
+      <button id="log-out" class="hidden">Log Out</button>
     </main>
     <footer>
       <p>

@@ -12,6 +12,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="home.js"></script>
     <title>Home of SEAL</title>
   </head>
   <body>
@@ -21,7 +23,7 @@
         <h1>SEAL</h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -57,65 +59,15 @@
             <a href="#sales">Sales</a>
           </li>
           <li>
-            <a href="#new-products">New Products</a>
-          </li>
-          <li>
             <a href="#new-workshops">New Workshops and Classes</a>
           </li>
         </ul>
       </nav>
+      <div id="error-container">
+      </div>
       <section id="sales">
         <h2>Sales</h2>
-        <p>Will use fetch to fetch all sales product later</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/yogurt.png" alt="yogurt" />
-            <figcaption>
-              <p>Latose-free Yogurt</p>
-              <p>Price: $4.99/Tub</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/fig.png" alt="fig" />
-            <figcaption>
-              <p>Figs</p>
-              <p>Price: $3.99/lb</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/salmon.png" alt="salmon" />
-            <figcaption>
-              <p>Salmon</p>
-              <p>Price: $9.99/lb</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-      <section id="new-products">
-        <h2>New Products</h2>
-        <p>Will use fetch to fetch all new items later</p>
-        <div class="image-container flex">
-          <figure>
-            <img src="img/honey.png" alt="honey" />
-            <figcaption>
-              <p>Manuka Honey</p>
-              <p>Price: $22.99/Jar</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/jam.png" alt="jam" />
-            <figcaption>
-              <p>Rainer Cherry Jam</p>
-              <p>Price: $8.99/Jar</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/peanutbutter.png" alt="peanut butter" />
-            <figcaption>
-              <p>Peanut Butter</p>
-              <p>Price: $3.99/Jar</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
       <section id="new-workshops">
@@ -132,6 +84,20 @@
             <img src="img/goatyoga2.jpg" alt="black baby goat on top of woman doing yoga" />
           </div>
         </article>
+      </section>
+      <section id="item-info" class="hidden">
+        <button id="back">Back</button>
+        <img id="item-image" />
+        <section>
+          <h2>Content: </h2>
+          <p id="content"></p>
+          <h2>Information: </h2>
+          <p id="description"></p>
+          <h2>Price: </h2>
+          <p class="original-price">$<span id="original"></span>/<spa class="unit">lb</span></p>
+          <p>$<span id="sale-price"></span>/<span class="unit">lb</span></p>
+          <button id="add">Add to Cart</button>
+        </section>
       </section>
       <a href="#top">Back to the Top</a>
     </main>

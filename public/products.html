@@ -11,6 +11,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="products.js"></script>
     <title>Products Page of SEAL</title>
   </head>
   <body>
@@ -22,7 +24,7 @@
         </h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" id="icon" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -49,17 +51,18 @@
           </li>
         </ul>
       </nav>
+      <div id="error-container">
+      </div>
       <div id="filter-search" class="flex">
         <select name="price-range">
           <option value="">--Please Choose a Price Range--</option>
-          <option value="<5">&lt;$5</option>
-          <option value="5-10">$5-10</option>
-          <option value="10-25">$10-25</option>
-          <option value="25-50">$25-50</option>
-          <option value=">50">&gt;$50</option>
+          <option value="5">&lt;$5</option>
+          <option value="10">&lt;$10</option>
+          <option value="25">&lt;$25</option>
+          <option value="50">&lt;$50</option>
         </select>
         <input type="text" id="search-item" />
-        <button>Search</button>
+        <button id="search">Search</button>
       </div>
       <nav id="local-nav">
         <ul>
@@ -78,153 +81,72 @@
           <li>
             <a href="#pantry">Pantry Essentials</a>
           </li>
+          <li>
+            <a href="#outerwears">Outerwears</a>
+          </li>
+          <li>
+            <a href="#tops">Tops</a>
+          </li>
+          <li>
+            <a href="#pants">Pants</a>
+          </li>
         </ul>
       </nav>
-      <section id="dairy">
+      <p>All clothes on this site are magically <strong>one-size-fit-all</strong>!</p>
+      <section id="dairy" class="category">
         <h2>Dairy & Eggs</h2>
-        <p>Will use fetch to fetch all dairy product later</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/yogurt.png" alt="yogurt" />
-            <figcaption>
-              <p>Latose-free Yogurt</p>
-              <p>Price: $4.99/Tub</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/cheese.png" alt="parmigiano cheese" />
-            <figcaption>
-              <p>Parmigiano Cheese</p>
-              <p>Price: $19.99/lb</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/eggs.png" alt="pasture-raised freerange eggs" />
-            <figcaption>
-              <p>Pasture-raised Freerange Eggs</p>
-              <p>Price: $5.99/dozen</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
-      <section id="meat">
+      <section id="meat" class="category">
         <h2>Beef, Poultry, & Pork</h2>
-        <p>Will use fetch to fetch all meats</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/beef.png" alt="steak" />
-            <figcaption>
-              <p>Ribeye Steak</p>
-              <p>Price: $13.99/lb</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/turkey.png" alt="turkey" />
-            <figcaption>
-              <p>Roasted Turkey</p>
-              <p>Price: $8.99/Each</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/ham.png" alt="ham" />
-            <figcaption>
-              <p>Whole Ham</p>
-              <p>Price: $10.99/Each</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
-      <section id="seafood">
+      <section id="seafood" class="category">
         <h2>Seafood</h2>
-        <p>Will use fetch to fetch all seafood later</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/oyster.png" alt="oysters" />
-            <figcaption>
-              <p>Fresh Oysters</p>
-              <p>Price: $3.99/each</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/shrimp.png" alt="shrimp" />
-            <figcaption>
-              <p>Shrimp</p>
-              <p>Price: $9.99/lb</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/crab.png" alt="crab" />
-            <figcaption>
-              <p>Dungeness Crab</p>
-              <p>Price: $15.99/Each</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
-      <section id="produce">
+      <section id="produce" class="category">
         <h2>Produce</h2>
-        <p>Will use fetch to fetch all produce later</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/avocado.png" alt="avocado" />
-            <figcaption>
-              <p>Organic Large Hass Avocado</p>
-              <p>Price: $2.99/Each</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/pepper.png" alt="pepper" />
-            <figcaption>
-              <p>Bell Pepper</p>
-              <p>Price: $0.99/Each</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/zucchini.png" alt="zucchini" />
-            <figcaption>
-              <p>Zucchini</p>
-              <p>Price: $0.99/Each</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
-      <section id="pantry">
+      <section id="pantry" class="category">
         <h2>Pantry Essentials</h2>
-        <p>Will use fetch to fetch all pantry essentials later</p>
         <div class="image-container flex">
-          <figure>
-            <img src="img/honey.png" alt="honey" />
-            <figcaption>
-              <p>Manuka Honey</p>
-              <p>Price: $22.99/Jar</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/jam.png" alt="jam" />
-            <figcaption>
-              <p>Rainer Cherry Jam</p>
-              <p>Price: $8.99/Jar</p>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="img/peanutbutter.png" alt="peanut butter" />
-            <figcaption>
-              <p>Peanut Butter</p>
-              <p>Price: $3.99/Jar</p>
-            </figcaption>
-          </figure>
+        </div>
+      </section>
+      <section id="outerwears" class="category">
+        <h2>Outerwears</h2>
+        <div class="image-container flex">
+        </div>
+      </section>
+      <section id="tops" class="category">
+        <h2>Tops</h2>
+        <div class="image-container flex">
+        </div>
+      </section>
+      <section id="pants" class="category">
+        <h2>Bottoms</h2>
+        <div class="image-container flex">
         </div>
       </section>
       <!-- switch class to flex later -->
       <section id="item-info" class="hidden">
-        <img src="img/salmon.png" alt="salmon" />
+        <button id="back">Back</button>
+        <img id="item-image" />
         <section>
           <h2>Content: </h2>
-          <p>Salmon</p>
+          <p id="content"></p>
           <h2>Information: </h2>
-          <p>Farm-raised Norwegian salmon fillet, delivered fresh every day!</p>
-          <h2>Price</h2>
-          <p>$<span>9.99</span>/<span>lb</span></p>
+          <p id="description"></p>
+          <div id="color-radio" class="flex">
+          </div>
+          <h2>Price: </h2>
+          <p id="original"></p>
+          <p id="sale-price"></p>
           <button id="add">Add to Cart</button>
         </section>
       </section>
