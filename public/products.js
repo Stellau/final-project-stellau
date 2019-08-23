@@ -40,6 +40,26 @@
       qs("select").addEventListener("change", filterProducts);
       id("search").addEventListener("click", searchProducts);
       helpers.createCart();
+      checkLogin();
+    } catch (err) {
+      handleError();
+    }
+  }
+
+  /**
+   * this function is used to check whether there is a user who is logged-in
+   */
+  async function checkLogin() {
+    let url = "/checklogin";
+    try {
+      let res = await fetch(url, {method: "POST"});
+      res = checkStatus(res);
+      let login = await res.text();
+      if (login === "true") {
+        id("user-icon").classList.remove("hidden");
+      } else {
+        id("user-icon").classList.add("hidden");
+      }
     } catch (err) {
       handleError();
     }

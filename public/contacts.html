@@ -11,6 +11,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="contacts.js"></script>
     <title>Contacts Page of SEAL</title>
   </head>
   <body>
@@ -22,7 +24,7 @@
         </h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" id="user-icon" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -49,12 +51,14 @@
           </li>
         </ul>
       </nav>
-      <section id="visitor-contact">
+      <div id="error-container">
+      </div>
+      <section id="guest">
         <p>
           Please enter the information below! Our staffs will be
           in touch with you shortly to assist you with your problems.
         </p>
-        <form>
+        <form id="guest-contact">
           <p>
             <label for="name">Name: </label>
             <input type="text" id="name" name="name" required />
@@ -67,22 +71,24 @@
             <label for="phone-number">Phone Number: </label>
             <input type="tel" id="phone-number" name="phone-number"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+            <p>Please enter your number in the format of 123-456-7890</p>
           </p>
           <label for="message">Message: </label>
           <textarea id="message" name="message" rows="5" cols="50" required></textarea>
           <button type="submit">Submit</button>
         </form>
       </section>
-      <section id="user-contact" class="hidden">
+      <section id="user" class="hidden">
         <p>
           Please fill out your concerns below, our staffs will be with you shortly!
         </p>
-        <form>
+        <form id="user-contact">
           <label for="user-message">Message: </label>
           <textarea id="user-message" name="message" rows="5" cols="50" required></textarea>
           <button type="submit">Submit</button>
         </form>
       </section>
+      <p id="success-message"></p>
     </main>
     <footer>
       <p>

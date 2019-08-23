@@ -11,6 +11,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="workshops.js"></script>
     <title>Rewards Page of SEAL</title>
   </head>
   <body>
@@ -22,7 +24,7 @@
         </h1>
       </div>
       <div id="cart-and-icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" id="user-icon" class="hidden">
           <img src="img/orca.png" alt="User Icon"/>
         </a>
         <a href="cart.html" title="Cart of SEAL">
@@ -49,6 +51,8 @@
           </li>
         </ul>
       </nav>
+      <div id="error-container">
+      </div>
       <p>
         Here are some workshops that are hosted by SEAL.
         <strong>Sign Up</strong> to participate in it!

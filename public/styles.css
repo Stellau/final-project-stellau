@@ -3,7 +3,7 @@
   Date: 08.11.2019
   Section: CSE 154 AC
 
-  This is the CSS file that I use for the home page of my final project
+  This is the CSS file that I use for the all pages of my final project
 */
 
 @import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
@@ -147,7 +147,7 @@ section img, #add, #back, #already-btn, #redeem, #check-out, #container img {
   margin-top: 5rem;
 }
 
-#sign-up {
+#sign-up, #success-message {
   min-height: 20rem;
 }
 

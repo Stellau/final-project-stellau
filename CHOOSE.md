@@ -5,5 +5,5 @@ This file must be filled out to be eligible for full credit on the final  submis
 ## List for YOU to fill out
 fill out the list below with your chosen features. To be eligible for full credit this list _must_ be filled out prior to the final submission date.
 - **Chosen Features**
-  - -- fill in 1st chosen feature here --
-  - -- fill in 2nd chosen feature here --
+  - Option 1
+  - Option 4

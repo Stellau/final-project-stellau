@@ -52,6 +52,9 @@ let helpers = {
     return document.createElement(tagName);
   },
 
+  /**
+   * Creates localstorage to add items to cart
+   */
   createCart: function() {
     if (!window.localStorage.getItem("cart")) {
       window.localStorage.setItem("cart", "[]");

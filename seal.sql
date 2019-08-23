@@ -1,3 +1,8 @@
+-- Author: Stella Lau
+-- Section: CSE 154 AC
+-- Last Updated: 08/22/2019 12:48
+
+-- This database will be used in app.js, which will be used for SEAL
 CREATE DATABASE IF NOT EXISTS seal;
 USE seal;
 
@@ -8,6 +13,7 @@ DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS order_details;
 DROP TABLE IF EXISTS contacts;
 
+-- This table stores all information about all the products sold at SEAL
 CREATE TABLE products(
   pid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(63) NOT NULL,
@@ -23,7 +29,7 @@ CREATE TABLE products(
   discount decimal(6,2)
 );
 
--- after inserting statement, import products.csv into the products table
+-- Note: after inserting statement, import products.csv into the products table
 INSERT INTO products (name, short, content, description, subcategory, category, price, unit)
 VALUES("Large Organic Hass Avocado", "avocado", "Avocado", "A great source of vitamins B, K, C, E, and potassium", "produce", "Food", 2.99, "each"),
       ("USDA Prime Ribeye Steak", "beef", "USDA PRIME beef", "A great source of iron and zinc!", "meat", "Food", 13.99, "lb"),
@@ -41,7 +47,8 @@ VALUES("Large Organic Hass Avocado", "avocado", "Avocado", "A great source of vi
       ("Monthong Durians", "durian", "Monthong Durians", "Flavorful and exotic Monthong durians imported from Thailand!", "produce", "Food", 20.99, "each"),
       ("Kiwis", "kiwi", "Kiwi fruits", "Kiwi fruits imported from New Zealand!", "produce", "Food", 3.99, "lb");
 
--- import gifts.csv into the gifts table
+-- This table stores all of the information about gifts that users can exchange with their points
+-- Note: import gifts.csv into the gifts table
 CREATE TABLE gifts(
   gid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(63) NOT NULL,
@@ -52,16 +59,19 @@ CREATE TABLE gifts(
   unit VARCHAR(10)
 );
 
+-- This table stores all information about the users of this website
 CREATE TABLE users(
   uid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(63) NOT NULL,
   email VARCHAR(63) NOT NULL,
   phone_number VARCHAR(20) NOT NULL,
+  password VARCHAR(30) NOT NULL,
   points INT DEFAULT 0,
   join_time DATETIME DEFAULT NOW(),
-  session_id INT NOT NULL UNIQUE
+  session_id VARCHAR(63) NOT NULL UNIQUE
 );
 
+-- This table stores all orders submitted
 CREATE TABLE orders(
   order_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   uid INT NOT NULL,
@@ -71,6 +81,7 @@ CREATE TABLE orders(
   FOREIGN KEY (uid) REFERENCES users(uid)
 );
 
+-- This table stores the order details of the orders so I can have more than one item for an order
 CREATE TABLE order_details(
   detail_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   order_id INT NOT NULL,
@@ -83,6 +94,7 @@ CREATE TABLE order_details(
   FOREIGN KEY (gid) REFERENCES gifts(gid)
 );
 
+-- This table stores all the customer service contant information
 CREATE TABLE contacts(
   cid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   uid INT,
