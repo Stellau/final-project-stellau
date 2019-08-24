@@ -678,7 +678,7 @@ async function getDB() {
     port: "8889",
     user: "root",
     password: "root",
-    database: "seald"
+    database: "seal"
   });
   return db;
 }
