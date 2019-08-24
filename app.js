@@ -309,7 +309,7 @@ app.post("/logout", (req, res) => {
   let sessionId = req.cookies["session_id"];
   if (sessionId) {
     res.clearCookie("session_id");
-    res.send("You logged out sucessfully!");
+    res.send("You logged out successfully!");
   } else {
     res.send("You logged out already!");
   }
