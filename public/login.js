@@ -30,9 +30,8 @@
       logIn();
     });
     id("already-btn").addEventListener("click", displayLogIn);
-
-    // addEventListener to log-out, clears all the user's information
     id("log-out").addEventListener("click", logOut);
+    helpers.createCart();
   }
 
   /**
@@ -127,6 +126,7 @@
       id("user-info").classList.remove("flex");
       id("user-info").classList.add("hidden");
       id("log-out").classList.add("hidden");
+      window.localStorage.setItem("cart", "[]");
       const DELAY = 5000;
       setTimeout(returnToMain, DELAY);
     } catch (err) {

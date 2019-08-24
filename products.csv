@@ -1,15 +1,15 @@
-16,Figs,fig,Californian black figs,Great source of dietary fiber,produce,Food,NULL,3.99,lb,1,0.5
-17,Manuka Honey,honey,Manuka honey,UMF 15+ Manuka honey imported from New Zealand,pantry,Food,NULL,22.99,jar,1,3.99
-18,Rainier Cherries Jam,jam,Rainer cherries and coconut sugar,Made with love with rainier cherries from Eastern Washington,pantry,Food,NULL,13.99,jar,1,2.99
-19,Salmon,salmon,Farm-raised Norwegian Salmon,Freshly imported daily from Norway,seafood,Food,NULL,12.99,lb,1,2.99
-20,Peanut Butter,peanutbutter,Peanut butter,"Peanut butter, great for PBJs!",pantry,Food,NULL,4.99,jar,1,1.49
-21,Lactose-free Yogurt,yogurt,Lactase and yogurt,Safe to enjoy for those who are lactose-intolerant,dairy,Food,NULL,6.99,jar,1,1.99
-22,Denim Jacket,denim-jacket-black,100% cotton,Comfy denim jacket for everyday wear,outerwears,Apparel,Black,69.99,jacket,0,NULL
-23,Denim Jacket,denim-jacket-blue,100% cotton,Comfy denim jacket for everyday wear,outerwears,Apparel,Blue,69.99,jacket,0,NULL
-24,Down Jacket,jacket-orange,Nylon and gooese down,Keeps you warm wherever you go,outerwears,Apparel,Orange,199.99,jacket,0,NULL
-25,Down Jacket,jacket-blue,Nylon and gooese down,Keeps you warm wherever you go,outerwears,Apparel,Blue,199.99,jacket,0,NULL
-26,Jeans,jeans-blue,100% cotton,"Comfy jeans for daily wear, one size fits all!",pants,Apparel,Blue,59.99,jeans,0,NULL
-27,Jeans,jeans-khaki,100% cotton,"Comfy jeans for daily wear, one size fits all!",pants,Apparel,Khaki,59.99,jeans,0,NULL
-28,Shirt,shirt-blue,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Blue,14.99,shirt,0,NULL
-29,Shirt,shirt-orange,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Orange,14.99,shirt,0,NULL
-30,Shirt,shirt-purple,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Purple,14.99,shirt,0,NULL
+16,Figs,fig,Californian black figs,Great source of dietary fiber,produce,Food,NULL,3.99,lb,1,0.5,100
+17,Manuka Honey,honey,Manuka honey,UMF 15+ Manuka honey imported from New Zealand,pantry,Food,NULL,22.99,jar,1,3.99,500
+18,Rainier Cherries Jam,jam,Rainer cherries and coconut sugar,Made with love with rainier cherries from Eastern Washington,pantry,Food,NULL,13.99,jar,1,2.99,250
+19,Salmon,salmon,Farm-raised Norwegian Salmon,Freshly imported daily from Norway,seafood,Food,NULL,12.99,lb,1,2.99,100
+20,Peanut Butter,peanutbutter,Peanut butter,"Peanut butter, great for PBJs!",pantry,Food,NULL,4.99,jar,1,1.49,300
+21,Lactose-free Yogurt,yogurt,Lactase and yogurt,Safe to enjoy for those who are lactose-intolerant,dairy,Food,NULL,6.99,jar,1,1.99,100
+22,Denim Jacket,denim-jacket-black,100% cotton,Comfy denim jacket for everyday wear,outerwears,Apparel,Black,69.99,jacket,0,NULL,500
+23,Denim Jacket,denim-jacket-blue,100% cotton,Comfy denim jacket for everyday wear,outerwears,Apparel,Blue,69.99,jacket,0,NULL,500
+24,Down Jacket,jacket-orange,Nylon and gooese down,Keeps you warm wherever you go,outerwears,Apparel,Orange,199.99,jacket,0,NULL,500
+25,Down Jacket,jacket-blue,Nylon and gooese down,Keeps you warm wherever you go,outerwears,Apparel,Blue,199.99,jacket,0,NULL,500
+26,Jeans,jeans-blue,100% cotton,"Comfy jeans for daily wear, one size fits all!",pants,Apparel,Blue,59.99,jeans,0,NULL,500
+27,Jeans,jeans-khaki,100% cotton,"Comfy jeans for daily wear, one size fits all!",pants,Apparel,Khaki,59.99,jeans,0,NULL,500
+28,Shirt,shirt-blue,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Blue,14.99,shirt,0,NULL,500
+29,Shirt,shirt-orange,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Orange,14.99,shirt,0,NULL,500
+30,Shirt,shirt-purple,100% cotton,Comfy t-shirt for daily wear!,tops,Apparel,Purple,14.99,shirt,0,NULL,500

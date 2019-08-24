@@ -46,7 +46,7 @@ header img, #user-info img {
   margin-top: -5rem;
 }
 
-#global-nav ul, .image-container, #color-radio {
+#global-nav ul, .image-container, #color-radio, #container {
   justify-content: space-evenly;
 }
 
@@ -108,7 +108,7 @@ section img, #add, #back, #already-btn, #redeem, #check-out, #container img {
   margin-top: 1rem;
 }
 
-#signup-btn, #already-btn, #login-btn, #log-out, #item-info {
+#signup-btn, #already-btn, #login-btn, #log-out, #item-info, #check-out {
   margin-bottom: 5rem;
 }
 
@@ -120,7 +120,7 @@ section img, #add, #back, #already-btn, #redeem, #check-out, #container img {
   justify-content: flex-start;
 }
 
-#items, #rewards, #subtotal {
+#items, #subtotal {
   margin-left: 5rem;
 }
 
@@ -163,7 +163,7 @@ section img, #add, #back, #already-btn, #redeem, #check-out, #container img {
   margin-bottom: 3rem;
 }
 
-#back, #user-info img, #items, #rewards, #subtotal {
+#back, #user-info img, #items, #subtotal {
   margin-right: 5rem;
 }
 

@@ -104,13 +104,13 @@ app.get("/single/:short", async (req, res) => {
     db = await getDB();
     let query = "SELECT content, description FROM products WHERE short = ?;";
     let result = await db.query(query, [short]);
+    db.end();
     if (result.length === 0) {
       res.type("text");
       res.status(INVALID_PARAM_ERROR).send(INVALID_SHORT);
     } else {
       res.json(result[0]);
     }
-    db.end();
   } catch (err) {
     handleError(db, res);
   }
@@ -124,13 +124,13 @@ app.get("/gift/:short", async (req, res) => {
     db = await getDB();
     let query = "SELECT content, description FROM gifts WHERE short = ?;";
     let result = await db.query(query, [short]);
+    db.end();
     if (result.length === 0) {
       res.type("text");
       res.status(INVALID_PARAM_ERROR).send(INVALID_SHORT);
     } else {
       res.json(result[0]);
     }
-    db.end();
   } catch (err) {
     handleError(db, res);
   }
@@ -143,6 +143,7 @@ app.get("/color/:name", async (req, res) => {
     db = await getDB();
     let query = "SELECT color FROM products WHERE name = ?";
     let result = await db.query(query, [name]);
+    db.end();
     if (result.length === 0) {
       res.type("text");
       res.status(INVALID_PARAM_ERROR).send("Please make sure that the name is valid!");
@@ -151,7 +152,6 @@ app.get("/color/:name", async (req, res) => {
       let colors = mapValues(result, value);
       res.json(colors);
     }
-    db.end();
   } catch (err) {
     handleError(db, res);
   }
@@ -165,6 +165,7 @@ app.get("/price/:range", async (req, res) => {
     let query =
     "SELECT short FROM products WHERE sales = 1 && price-discount < ? OR sales = 0 && price < ?;";
     let result = await db.query(query, [range, range]);
+    db.end();
     if (result.length === 0) {
       res.type("text");
       res.status(INVALID_PARAM_ERROR).send("Please make sure that the range is valid!");
@@ -173,7 +174,6 @@ app.get("/price/:range", async (req, res) => {
       let shorts = mapValues(result, value);
       res.json(shorts);
     }
-    db.end();
   } catch (err) {
     handleError(db, res);
   }
@@ -186,13 +186,13 @@ app.get("/search/:term", async (req, res) => {
     db = await getDB();
     let query = "SELECT short FROM products WHERE name LIKE " + db.escape('%' + term + '%') + ";";
     let result = await db.query(query, [term]);
+    db.end();
     let shorts = [];
     if (result.length > 0) {
       let value = "short";
       shorts = mapValues(result, value);
     }
     res.json(shorts);
-    db.end();
   } catch (err) {
     handleError(db, res);
   }
@@ -212,12 +212,12 @@ app.post("/contacts", async (req, res) => {
       db = await getDB();
       let query = "INSERT INTO contacts(name, phone_number, email, message) VALUES (?, ?, ?, ?);";
       let result = await db.query(query, [name, number, email, message]);
+      db.end();
       if (result.affectedRows === 1) {
         res.send(CONTACT_SUCCESS);
       } else {
         throw new Error();
       }
-      db.end();
     } catch (err) {
       handleError(db, res);
     }
@@ -325,6 +325,36 @@ app.post("/checklogin", (req, res) => {
   }
 });
 
+app.post("/submit", async (req, res) => {
+  let uid = req.body.uid;
+  let totalPrice = req.body["total_price"];
+  let totalPoints = req.body["total_points"];
+  let tax = req.body.tax;
+  let pointsEarned = req.body["points_earned"];
+  res.type("text");
+  if (!(uid && totalPrice && totalPoints && tax)) {
+    res.status(INVALID_PARAM_ERROR).send(MISS_PARAM);
+  } else {
+    let db;
+    try {
+      db = await getDB();
+      let query =
+      "INSERT INTO orders(uid, total_price, total_points, tax) VALUES (?, ?, ?, ?);";
+      let results = await db.query(query, [uid, totalPrice, totalPoints, tax]);
+      if (results.affectedRows === 1) {
+        let qry = "UPDATE users SET points = points + ? WHERE uid = ?;";
+        let result = await db.query(qry, [pointsEarned, uid]);
+        verifyResponse(result, res);
+      } else {
+        throw new Error();
+      }
+      db.end();
+    } catch (err) {
+      handleError(db, res);
+    }
+  }
+});
+
 app.post("/currentuser", async (req, res) => {
   let sessionId = req.cookies["session_id"];
   let db;
@@ -333,12 +363,118 @@ app.post("/currentuser", async (req, res) => {
     let query =
     "SELECT email, phone_number, points FROM users WHERE session_id = ?";
     let result = await db.query(query, [sessionId]);
-    res.json(result[0]);
     db.end();
+    res.json(result[0]);
   } catch (err) {
     handleError(db, res);
   }
 });
+
+app.post("/currentuserid", async (req, res) => {
+  let sessionId = req.cookies["session_id"];
+  let db;
+  try {
+    db = await getDB();
+    let query = "SELECT uid FROM users WHERE session_id = ?";
+    let result = await db.query(query, [sessionId]);
+    db.end();
+    if (result.length === 1) {
+      res.json(result[0].uid);
+    } else {
+      throw new Error();
+    }
+  } catch (err) {
+    handleError(db, res);
+  }
+});
+
+app.get("/cart/:item", async (req, res) => {
+  let item = req.params.item;
+  let db;
+  try {
+    db = await getDB();
+    let query =
+    "SELECT name, price, unit, sales, discount, color FROM products WHERE short=?;";
+    let result = await db.query(query, [item]);
+    if (result.length === 1) {
+      result = result[0];
+      let name = result.name;
+      let unit = result.unit;
+      let color = result.color;
+      let product = {};
+      if (result.sales) {
+        let price = result.price - result.discount;
+        product = genProductJSON(name, price, unit, color, product);
+      } else {
+        product = genProductJSON(name, result.price, unit, color, product);
+      }
+      db.end();
+      res.json(product);
+    } else {
+      await checkGifts(item, db, res);
+    }
+  } catch (err) {
+    handleError(db, res);
+  }
+});
+
+/**
+ * this function helpes to generate a JSON object with product information given
+ * @param {string} name - name of the product
+ * @param {integer} price - price of the product
+ * @param {string} unit - unit of the product
+ * @param {string} color - color of the product
+ * @param {JSON} product - an empty JSON
+ * @returns {JSON} - a JSON with the product's information
+ */
+function genProductJSON(name, price, unit, color, product) {
+  if (color) {
+    product["name"] = color + " " + name;
+    product["tax"] = true;
+  } else {
+    product["name"] = name;
+    product["tax"] = false;
+  }
+  product["unit"] = unit;
+  product["price"] = price;
+  product["type"] = "product";
+  return product;
+}
+
+/**
+ * @param {string} short - short of the gift
+ * @param {promise} db - the database connection
+ * @param {promise} res - response that will be sent
+ * @returns {JSON} a JSON object that holds basic information about the gift
+ */
+async function checkGifts(short, db, res) {
+  let query = "SELECT name, points, unit FROM gifts WHERE short=?;";
+  let result = await db.query(query, [short]);
+  db.end();
+  if (result.length === 1) {
+    let finalResult = result[0];
+    finalResult["type"] = "gift";
+    finalResult["tax"] = false;
+    res.json(finalResult);
+  } else {
+    res.type("text");
+    res.status(INVALID_PARAM_ERROR).send(INVALID_SHORT);
+  }
+}
+
+/**
+ * this function verify whether points are updated correctly
+ * for the user
+ * @param {JSON} result - the JSON object holding the insert data
+ * @param {object} res - the response object
+ */
+function verifyResponse(result, res) {
+  if (result.affectedRows === 1) {
+    res.send("You order is successfully submitted and is being processed now!");
+  } else {
+    throw new Error();
+  }
+}
 
 /**
  * this function is used to obtain user's information
@@ -403,7 +539,7 @@ async function getSessionId(db) {
  */
 async function insertUser(sessionId, userName, email, number, password, db) {
   let query =
-  "INSERT INTO users(username, email, phone_number, password, session_id) VALUES (?, ?, ?, ?, ?)";
+  "INSERT INTO users(username, email, phone_number, password, session_id) VALUES (?, ?, ?, ?, ?);";
   let results = await db.query(query, [userName, email, number, password, sessionId]);
   return results.affectedRows === 1;
 }
@@ -542,7 +678,7 @@ async function getDB() {
     port: "8889",
     user: "root",
     password: "root",
-    database: "seal"
+    database: "seald"
   });
   return db;
 }

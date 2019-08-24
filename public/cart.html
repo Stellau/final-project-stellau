@@ -12,6 +12,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="helpers.js"></script>
+    <script src="cart.js"></script>
     <title>Cart of SEAL</title>
   </head>
   <body>
@@ -23,7 +25,7 @@
         </h1>
       </div>
       <div id="icon" class="flex">
-        <a href="login.html" title="Log In Page of SEAL" class="hidden">
+        <a href="login.html" title="Log In Page of SEAL" id="user-icon" class="hidden">
           <img src="img/orca.png" alt="User Icon" />
         </a>
       </div>
@@ -50,42 +52,26 @@
           </li>
         </ul>
       </nav>
+      <p id="success"></p>
+      <div id="error-container">
+      </div>
       <div id="container" class="flex">
         <section id="items">
           <h2>Items: </h2>
-          <ul>
-            <li>
-              <p>Manuka Honey/Jar</p>
-              <p>Qty: <input type="number" min="0" step="1" /></p>
-            </li>
-            <li>
-              <p>Salmon/lb</p>
-              <p>Qty: <input type="number" min="0" step="1" /></p>
-            </li>
+          <ul id="items-cart">
           </ul>
-        </section>
-        <section id="rewards">
-          <h2>Rewards: </h2>
-          <p>Your reward points: <span>0</span></p>
-          <p>
-            If you want to redeem points for <strong>gifts</strong> visit rewards page
-            and add gifts to cart
-          </p>
-          <select name="rewards-option">
-            <option value="">--Please Choose a Rewards Option--</option>
-            <option value="1">Store Credit</option>
-            <option value="2">Orca Card© Credit</option>
-            <option value="3">Donate to Non-profit Organization</option>
-          </select>
-          <button id="redeem">Redeem</button>
         </section>
         <section id="subtotal">
           <h2>Subtotal: </h2>
-          <div>$0.00</div>
+          <p>$<span id="subtotal-price">0</span></p>
+          <h2>Subtotal Points: </h2>
+          <p><span id="subtotal-points">0</span></p>
           <h2>Tax(10%): </h2>
-          <div>$0.00</div>
+          <p>$<span id="tax">0</span></p>
+          <h2>Total: </h2>
+          <p>$<span id="grand-total">0</span></p>
           <h2>Points Earned: </h2>
-          <div>0</div>
+          <div id="points-earned">0</div>
           <button id="check-out">Check Out</button>
         </section>
       </div>

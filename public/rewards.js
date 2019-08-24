@@ -122,6 +122,7 @@
     id("option4").classList.add("hidden");
     qs("div.image-container").classList.remove("flex");
     qs("div.image-container").classList.add("hidden");
+    id("local-nav").classList.add("hidden");
     let messages = qsa("main > p");
     for (let i = 0; i < messages.length; i++) {
       messages[i].classList.add("hidden");

@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS gifts;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS order_details;
 DROP TABLE IF EXISTS contacts;
 
 -- This table stores all information about all the products sold at SEAL
@@ -26,7 +25,9 @@ CREATE TABLE products(
   price decimal(6,2) NOT NULL,
   unit VARCHAR(10) NOT NULL,
   sales TINYINT(1) DEFAULT 0,
-  discount decimal(6,2)
+  discount decimal(6,2),
+  -- did not get to use in my project because not enough time to implement
+  quantity INT DEFAULT 100
 );
 
 -- Note: after inserting statement, import products.csv into the products table
@@ -56,7 +57,9 @@ CREATE TABLE gifts(
   content VARCHAR(1000) NOT NULL,
   description VARCHAR(1000) NOT NULL,
   points INT NOT NULL,
-  unit VARCHAR(10)
+  unit VARCHAR(10),
+  -- did not get to use in my project because not enough time to implement
+  quantity INT DEFAULT 200
 );
 
 -- This table stores all information about the users of this website
@@ -76,22 +79,10 @@ CREATE TABLE orders(
   order_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   uid INT NOT NULL,
   total_price DECIMAL(8,2) NOT NULL,
+  total_points INT NOT NULL,
   tax DECIMAL(8,2) NOT NULL,
   order_time DATETIME DEFAULT NOW(),
   FOREIGN KEY (uid) REFERENCES users(uid)
-);
-
--- This table stores the order details of the orders so I can have more than one item for an order
-CREATE TABLE order_details(
-  detail_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  order_id INT NOT NULL,
-  pid INT NOT NULL,
-  p_qty INT NOT NULL,
-  gid INT NOT NULL,
-  q_qty INT NOT NULL,
-  FOREIGN KEY (order_id) REFERENCES orders(order_id),
-  FOREIGN KEY (pid) REFERENCES products(pid),
-  FOREIGN KEY (gid) REFERENCES gifts(gid)
 );
 
 -- This table stores all the customer service contant information
