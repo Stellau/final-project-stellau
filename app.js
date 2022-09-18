@@ -518,7 +518,7 @@ async function getSessionId(db) {
     /*
      * This wizardry comes from https://gist.github.com/6174/6062387
      * it can also be found on the section slides on the 20th
-     * Melissa grated permission for me to apply this to my final project
+     * Melissa granted permission for me to apply this to my final project
      */
     id = Math.random().toString(RADIX)
       .substring(START, END) + Math.random().toString(RADIX)
